@@ -14,8 +14,8 @@ import { createMenuApi } from "piral-menu";
 import NavMenu from "../components/nav-menu/NavMenu";
 import { Container } from "reactstrap";
 import { Home } from "../components/home/home";
+import SideMenu from "../components/sidenav/SideMenu";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SideMenu from "../components/sidenav/sidenav";
 
 function Loader() {
   return <div className="app-center">Loading ...</div>;
@@ -82,19 +82,7 @@ const Layout: React.FC = ({ children }) => {
         <NavMenu id="top-menu" />
       </header>
       <div>
-        <div id="mySidenav" className="sidenav">
-          <a
-            href="javascript:void(0)"
-            className="closebtn"
-            onClick={() => closeNav()}
-          >
-            &times;
-          </a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
-        </div>
+      <SideMenu />
         <div id="main" style={{marginLeft:'250px'}}>
           <Container fluid={true}>
             <div className="app-content">{children}</div>
@@ -119,12 +107,6 @@ function openNav() {
   x[0].style.marginLeft = "250px";
 }
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-  var x = document.getElementsByClassName("fixed-top");
-  x[0].style.marginLeft = "0";
-}
 const instance = createInstance({
   plugins: [createMenuApi()],
   requestPilets() {
