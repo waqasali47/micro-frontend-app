@@ -6,7 +6,7 @@ import { Link, withRouter } from 'react-router-dom';
 import './navmenu.css';
 import { useGlobalState } from 'piral-core';
 
-const NavMenu: React.FC = () => {
+const NavMenu: React.FC = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
@@ -14,7 +14,7 @@ const NavMenu: React.FC = () => {
 
     return (
             <Navbar className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a className="navbar-brand" href="/">Home</a>
+                <a className="navbar-brand" href="/" onClick={() => _goTo(props.history)}>Home</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -40,6 +40,8 @@ const NavMenu: React.FC = () => {
         </Navbar>
     );
 }
-
+function _goTo(name:string, history:any){
+    history.push("/");
+}
 export default withRouter(NavMenu);
 

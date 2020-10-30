@@ -4,13 +4,15 @@ import {
 } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
 import { useGlobalState } from 'piral-core';
-
-const SideMenu: React.FC = () => {
+export type SideMenuProps = {
+    history:any
+}
+const SideMenu: React.FC = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const s = props.history
     const toggle = () => setIsOpen(!isOpen);
     const menuItems = useGlobalState((s) => s.registry.menuItems);
-
+    
     return (
         <div id="mySidenav" className="sidenav">
         <a
@@ -20,17 +22,15 @@ const SideMenu: React.FC = () => {
         >
           &times;
         </a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-        {Object.keys(menuItems).map((name) => {
-                        const item = menuItems[name];
-
+       <ul>
+        {Object.keys(menuItems).map((p) => {
+                        const item = menuItems[p];
+                        const name = item.pilet;
                         if (item.settings.type === 'general') {
                             const Component = item.component;
                             return (
                                 <li key={name}>
+                                    <a href={"/"+name} onClick={() => _goTo(name, props.history)}>{name}</a>
                                     <Component />
                                 </li>
                             );
@@ -38,12 +38,15 @@ const SideMenu: React.FC = () => {
 
                         return undefined;
                     })}
+                    </ul>
       </div>
     );
 }
 
 
-
+function _goTo(name:string, history:any){
+    history.push(name);
+}
   
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";

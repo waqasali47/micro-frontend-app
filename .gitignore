@@ -1,2 +1,6 @@
 appshell/node_modules/*
 appshell/dist/*
+about/node_modules/*
+about/dist/*
+*.tgz
+appshell/.vscode/launch.json

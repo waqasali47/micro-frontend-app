@@ -20,10 +20,6 @@ export function Home() {
                     <li><strong>Micro frontend </strong>. Fetch </li>
                 </ul>
             </div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>
-                Click me
-      </button>
         </div>
     );
 }

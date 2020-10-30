@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps, useHistory } from "react-router-dom";
 import {
   createInstance,
   useGlobalState,
@@ -76,13 +76,14 @@ const Menu: React.FC = () => {
 };
 
 const Layout: React.FC = ({ children }) => {
+  let history = useHistory();
   return (
     <div>
       <header>
-        <NavMenu id="top-menu" />
+        <NavMenu history={history} />
       </header>
       <div>
-      <SideMenu />
+      <SideMenu history={history} />
         <div id="main" style={{marginLeft:'250px'}}>
           <Container fluid={true}>
             <div className="app-content">{children}</div>
@@ -110,7 +111,7 @@ function openNav() {
 const instance = createInstance({
   plugins: [createMenuApi()],
   requestPilets() {
-    return new Promise((resolve) => setTimeout(() => resolve([]), 1000));
+    return fetch('http://localhost:9000/api/v1/pilet').then(res => res.json()).then(res => res.items).catch(() => { return new Promise(resolve => setTimeout(() => resolve([]), 2)); });
   },
 });
 
