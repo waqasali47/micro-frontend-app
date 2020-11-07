@@ -23,6 +23,9 @@ const SideMenu: React.FC = (props) => {
           &times;
         </a>
        <ul>
+       <li key="home">
+                  <Link to="/" onClick={() => _goTo("/", props.history)}>Home</Link>
+                                </li>
         {Object.keys(menuItems).map((p) => {
                         const item = menuItems[p];
                         const name = item.pilet;
@@ -30,7 +33,7 @@ const SideMenu: React.FC = (props) => {
                             const Component = item.component;
                             return (
                                 <li key={name}>
-                                    <a href={"/"+name} onClick={() => _goTo(name, props.history)}>{name}</a>
+                                    <Link to={"/"+name} onClick={() => _goTo(name, props.history)}>{name}</Link>
                                     <Component />
                                 </li>
                             );

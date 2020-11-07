@@ -120,7 +120,6 @@ const app = (
     <SetComponent name="LoadingIndicator" component={Loader} />
     <SetComponent name="Layout" component={Layout} />
     <SetRoute path="/" component={Home} />
-    <SetRoute path="/sitemap" component={Sitemap} />
   </Piral>
 );
 render(app, document.querySelector("#app"));

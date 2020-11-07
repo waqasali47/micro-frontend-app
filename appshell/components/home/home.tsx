@@ -29,11 +29,7 @@ function test(){
                 <button className="btn btn-primary" onClick={test}>Call helper</button>
                 <p>{url}</p>
                 {count}
-                <p>To help you get started, we have also set up:</p>
-                <ul>
-                    <li><strong>Micro frontend </strong>. Click counter which is rendered as a microfrontend.</li>
-                    <li><strong>Micro frontend </strong>. Fetch </li>
-                </ul>
+            
             </div>
         </div>
     );
