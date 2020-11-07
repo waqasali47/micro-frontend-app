@@ -2,7 +2,7 @@
   "app": "src/index.html",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@microsoft/applicationinsights-react-js": "^2.3.1",
@@ -19,13 +19,13 @@
     "oidc-client": "^1.9.0",
     "piral-core": "^0.12.1",
     "piral-menu": "^0.12.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-router": ">=5.0.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
     "reactstrap": "^8.4.1",
-    "rimraf": "^2.6.2",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-router": ">=5.0.0"
+    "rimraf": "^2.6.2"
   },
   "devDependencies": {
     "@types/react": "^16.8.2",

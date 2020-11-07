@@ -7,6 +7,9 @@ import { useGlobalState } from 'piral-core';
 export type SideMenuProps = {
     history:any
 }
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faHome } from '@fortawesome/free-solid-svg-icons'
+
 const SideMenu: React.FC = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const s = props.history
@@ -24,7 +27,7 @@ const SideMenu: React.FC = (props) => {
         </a>
        <ul>
        <li key="home">
-                  <Link to="/" onClick={() => _goTo("/", props.history)}>Home</Link>
+                  <Link to="/" onClick={() => _goTo("/", props.history)}><FontAwesomeIcon icon={faHome} /> &nbsp; </Link>
                                 </li>
         {Object.keys(menuItems).map((p) => {
                         const item = menuItems[p];
@@ -52,10 +55,10 @@ function _goTo(name:string, history:any){
 }
   
   function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("mySidenav").style.width = "50px";
+    document.getElementById("main").style.marginLeft = "50px";
     var x = document.getElementsByClassName("fixed-top");
-    x[0].style.marginLeft = "0";
+    x[0].style.marginLeft = "50px";
   }
 
 export default withRouter(SideMenu);

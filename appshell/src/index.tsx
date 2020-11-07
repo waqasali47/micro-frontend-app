@@ -52,7 +52,7 @@ const Menu: React.FC = () => {
   return (
     <ul className="app-nav">
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/" onClick={() => _goTo(name, props.history)}>Home</Link>
       </li>
       {Object.keys(menuItems).map((name) => {
         const item = menuItems[name];
@@ -107,7 +107,9 @@ function openNav() {
   var x = document.getElementsByClassName("fixed-top");
   x[0].style.marginLeft = "250px";
 }
-
+function _goTo(name:string, history:any){
+  history.push(name);
+}
 const instance = createInstance({
   plugins: [createMenuApi()],
   requestPilets() {
