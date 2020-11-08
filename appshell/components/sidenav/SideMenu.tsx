@@ -8,7 +8,8 @@ export type SideMenuProps = {
     history:any
 }
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faAdjust, faCoffee, faHome } from '@fortawesome/free-solid-svg-icons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const SideMenu: React.FC = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,16 +19,16 @@ const SideMenu: React.FC = (props) => {
     
     return (
         <div id="mySidenav" className="sidenav">
-        <a
+        {/* <a
           href="javascript:void(0)"
           className="closebtn"
           onClick={() => closeNav()}
         >
           &times;
-        </a>
+        </a> */}
        <ul>
        <li key="home">
-                  <Link to="/" onClick={() => _goTo("/", props.history)}><FontAwesomeIcon icon={faHome} /> &nbsp; </Link>
+                  <Link to="/" onClick={() => _goTo("/", props.history)}><FontAwesomeIcon icon={faHome} /> Home </Link>
                                 </li>
         {Object.keys(menuItems).map((p) => {
                         const item = menuItems[p];
@@ -36,7 +37,7 @@ const SideMenu: React.FC = (props) => {
                             const Component = item.component;
                             return (
                                 <li key={name}>
-                                    <Link to={"/"+name} onClick={() => _goTo(name, props.history)}>{name}</Link>
+                                    <Link to={"/"+name} onClick={() => _goTo(name, props.history)}><FontAwesomeIcon icon={_getIcon(name)} /> {name}</Link>
                                     <Component />
                                 </li>
                             );
@@ -49,6 +50,18 @@ const SideMenu: React.FC = (props) => {
     );
 }
 
+function _getIcon(name:string):IconProp{
+  switch (name) {
+    case 'about':
+      return faCoffee;
+      break;
+    
+    default:
+      return faAdjust;
+      break;
+  }
+
+}
 
 function _goTo(name:string, history:any){
     history.push(name);

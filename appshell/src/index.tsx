@@ -84,16 +84,16 @@ const Layout: React.FC = ({ children }) => {
       </header>
       <div>
       <SideMenu history={history} />
-        <div id="main" style={{marginLeft:'250px'}}>
+        <div id="main" style={{marginLeft:'200px'}}>
           <Container fluid={true}>
             <div className="app-content">{children}</div>
-            <button
+            {/* <button
               style={{ fontSize: "30px", cursor: "pointer" }}
               className="btn btn-primary"
               onClick={() => openNav()}
             >
               &#9776; open
-            </button>
+            </button> */}
           </Container>
         </div>
       </div>
@@ -102,10 +102,10 @@ const Layout: React.FC = ({ children }) => {
 };
 
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("mySidenav").style.width = "200px";
+  document.getElementById("main").style.marginLeft = "200px";
   var x = document.getElementsByClassName("fixed-top");
-  x[0].style.marginLeft = "250px";
+  x[0].style.marginLeft = "200px";
 }
 function _goTo(name:string, history:any){
   history.push(name);
@@ -113,7 +113,7 @@ function _goTo(name:string, history:any){
 const instance = createInstance({
   plugins: [createMenuApi()],
   requestPilets() {
-    return fetch('http://localhost:9000/api/v1/pilet').then(res => res.json()).then(res => res.items).catch(() => { return new Promise(resolve => setTimeout(() => resolve([]), 2)); });
+    return fetch('https://feed.piral.cloud/api/v1/pilet/demo').then(res => res.json()).then(res => res.items).catch(() => { return new Promise(resolve => setTimeout(() => resolve([]), 2)); });
   },
 });
 
