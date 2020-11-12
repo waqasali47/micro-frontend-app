@@ -32,4 +32,4 @@ jobs:
         app-name: 'microfrontendapp'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_e69efef6671f4605a7ad301344fecb47 }}
-        package: .
+        package: appshell/
