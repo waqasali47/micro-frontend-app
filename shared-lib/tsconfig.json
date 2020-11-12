@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./lib",
+    "skipLibCheck": true,
+    "lib": ["dom", "es2018"],
+    "moduleResolution": "node",
+    "module": "esnext",
+    "jsx": "react",
+    "importHelpers": true
+  },
+  "include": [
+    "src",
+    "helpers"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

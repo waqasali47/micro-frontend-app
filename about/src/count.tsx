@@ -1,14 +1,22 @@
 import * as React from 'react';
-export function Count() {
-    // Declare a new state variable, which we'll call "count"
-    const [count, setCount] = React.useState(0);
+import { _getSampleUserInfo } from 'shared-lib/helpers/api-helper';
 
+export function Count() {
+    const [count, setCount] = React.useState(0);
+    const [url, setUrl] = React.useState('');
+
+    function getNames(){
+        _getSampleUserInfo().then(function(result) {
+            let s = result.words[0];
+            setUrl(s);
+        });
+     
+   }
     return (
         <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>
-                Click me
-      </button>
+            <button onClick={getNames} type="button" className="btn btn-primary">
+                    Call Shared Lib <span className="badge badge-light"> {url}</span>
+                </button>
         </div>
     );
 }

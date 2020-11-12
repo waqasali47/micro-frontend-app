@@ -4,3 +4,4 @@ about/node_modules/*
 about/dist/*
 *.tgz
 appshell/.vscode/launch.json
+shared-lib/node_modules/*

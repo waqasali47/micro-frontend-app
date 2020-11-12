@@ -11,8 +11,8 @@ export function setup(app: PiletApi) {
       );
       app.registerPage('/about', () => (
         <div style={{margin:10}}>
-          <h2>Hello from my about</h2>
-    <Count />
+          <h2>Hello from about page</h2>
+            <Count />
         </div>
       ));
 }

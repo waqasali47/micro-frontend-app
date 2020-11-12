@@ -1,5 +1,13 @@
 {
+  "name": "appshell",
+  "private": false,
+  "version": "1.0.0",
   "app": "src/index.html",
+  "pilets": {
+    "externals": [
+      "reactstrap"
+    ]
+  },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -24,8 +32,9 @@
     "react-router": ">=5.0.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
-    "reactstrap": "^8.4.1",
-    "rimraf": "^2.6.2"
+    "reactstrap": "^8.6.0",
+    "rimraf": "^2.6.2",
+    "shared-lib": "file:../shared-lib"
   },
   "devDependencies": {
     "@types/react": "^16.8.2",
@@ -40,8 +49,5 @@
     "piral-cli-webpack": "^0.12.1",
     "sass": "^1.17.0",
     "typescript": "^3.9.7"
-  },
-  "name": "appshell",
-  "private": false,
-  "version": "1.0.0"
+  }
 }
