@@ -26,7 +26,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-          npm install -g piral-cli
+          npm install -g piral-cli@0.12.1
           piral build
 
     - name: 'Deploy to Azure Web App'
@@ -35,4 +35,4 @@ jobs:
         app-name: 'microfrontendapp'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_e69efef6671f4605a7ad301344fecb47 }}
-        package: appshell/
+        package: appshell/dist/release
