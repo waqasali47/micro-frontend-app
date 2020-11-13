@@ -6,7 +6,7 @@ import { Link, withRouter } from 'react-router-dom';
 import './navmenu.css';
 import { useGlobalState } from 'piral-core';
 
-const NavMenu: React.FC = (props) => {
+export const NavMenu: React.FC = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
@@ -43,5 +43,5 @@ const NavMenu: React.FC = (props) => {
 function _goTo(name:string, history:any){
     history.push("/");
 }
-export default withRouter(NavMenu);
+
 
