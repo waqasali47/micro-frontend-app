@@ -12,7 +12,7 @@ import {
   PiralPlugin,
 } from "piral-core";
 import { createMenuApi } from "piral-menu";
-import NavMenu  from "../components/nav-menu/NavMenu";
+import NavMenu  from "../components/navmenu/NavMenu";
 import { Container } from "reactstrap";
 import { Home } from "../components/home/home";
 import SideMenu from "../components/sidenav/SideMenu";

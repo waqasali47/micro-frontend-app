@@ -3,7 +3,7 @@ import {
     Navbar,
 } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
-import './navmenu.css';
+import './navmenu.scss';
 import { useGlobalState } from 'piral-core';
 
 const NavMenu: React.FC = (props) => {
