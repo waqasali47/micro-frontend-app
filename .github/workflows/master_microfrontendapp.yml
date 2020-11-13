@@ -16,7 +16,7 @@ jobs:
         shell: bash
         working-directory: appshell
     steps:
-    - uses: actions/checkout@masterz
+    - uses: actions/checkout@master
 
     - name: Set up Node.js version
       uses: actions/setup-node@v1
