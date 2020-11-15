@@ -1,0 +1,34 @@
+name: Blob storage website CI
+
+on:
+  push:
+    branches: 
+      - master 
+  pull_request:
+    branches: master
+    
+jobs:
+  defaults:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node_version: '12.x'
+      - name : piral install and build
+        run: |
+          npm install
+          npm install -g piral-cli@0.12.1
+          piral build:
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS_PRIVATE }}
+      - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with: 
+          azcliversion: 2.0.72
+          inlineScript:  az storage blob upload-batch --account-name microfrontenddb -d '$web' -s appshell\dist\release\*
+      - name : logout
+        run : |
+          az logout
