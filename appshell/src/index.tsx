@@ -103,7 +103,11 @@ const Layout: React.FC = ({ children }) => {
   );
 };
 
-
+///To share code from inside the appshell
+// you would do the following.
+//This extends the PiletApi and then you can have access to exposed functions
+//in you pilets. To see how this is consumed? Look at shared-lib pilet which is included in
+//the base folder.
 export interface SharedApi {
   Do(): void;
   helperService: IHelperService;
@@ -125,7 +129,7 @@ export function ShareToPilets(): PiralPlugin<SharedApi> {
 declare module 'piral-core/lib/types/custom' {
   interface PiletCustomApi extends SharedApi {}
 }
-
+////End share code logic
 function openNav() {
   document.getElementById("mySidenav").style.width = "200px";
   document.getElementById("main").style.marginLeft = "200px";
@@ -139,7 +143,7 @@ function _goTo(name:string, history:any){
 const instance = createInstance({
   plugins: [createMenuApi(), ShareToPilets()],
   requestPilets() {
-    return fetch('https://feed.piral.cloud/api/v1/pilet/demo').then(res => res.json()).then(res => res.items).catch(() => { return new Promise(resolve => setTimeout(() => resolve([]), 2)); });
+    return fetch('http://localhost:7071/api/Pilet').then(res => res.json()).then(res => res.items).catch(() => { return new Promise(resolve => setTimeout(() => resolve([]), 2)); });
   },
 });
 
