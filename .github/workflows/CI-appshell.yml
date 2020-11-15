@@ -7,6 +7,23 @@ pull_request:
     branches: [ master ]
 
 jobs:
+    defaults:
+      run:
+        shell: bash
+        working-directory: appshell
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+    - name: npm install, build, and test
+      run: |
+        npm install
+          npm install -g piral-cli@0.12.1
+          piral build:
 build:
     runs-on: ubuntu-latest
     steps:
@@ -14,19 +31,14 @@ build:
     - name: Azure Login
     uses: azure/login@v1
     with:
-        creds: ${{ secrets.AZURE_CREDENTIALS:PRIVATE }}    
+        creds: ${{ secrets.AZURE_CREDENTIALSPRIVATE }}    
     - name: Azure CLI script
     uses: azure/CLI@v1
     with:
         azcliversion: 2.0.72
         inlineScript: |
             az storage blob upload-batch --account-name microfrontenddb -d '$web' -s .
-    - name: Azure CLI script
-    uses: azure/CLI@v1
-    with:
-        azcliversion: 2.0.72
-        inlineScript: |
-        az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
+       
         # Azure logout 
     - name: logout
       run: |
