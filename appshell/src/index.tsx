@@ -143,7 +143,7 @@ function _goTo(name:string, history:any){
 const instance = createInstance({
   plugins: [createMenuApi(), ShareToPilets()],
   requestPilets() {
-    return fetch('http://localhost:7071/api/Pilet').then(res => res.json()).then(res => res.items).catch(() => { return new Promise(resolve => setTimeout(() => resolve([]), 2)); });
+    return fetch('https://feed.piral.cloud/api/v1/pilet/demo').then(res => res.json()).then(res => res.items).catch(() => { return new Promise(resolve => setTimeout(() => resolve([]), 2)); });
   },
 });
 
