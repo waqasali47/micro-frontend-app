@@ -8,8 +8,13 @@ on:
     branches: master
     
 jobs:
-  defaults:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: appshell
+
     steps:
       - name: Setup NodeJS
         uses: actions/setup-node@v1
