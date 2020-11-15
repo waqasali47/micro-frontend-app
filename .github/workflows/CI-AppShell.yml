@@ -33,7 +33,7 @@ jobs:
         uses: azure/CLI@v1
         with: 
           azcliversion: 2.0.72
-          inlineScript:  az storage blob upload-batch --account-name microfrontenddb -d '$web' -s appshell\dist\release\*
+          inlineScript:  az storage blob upload-batch --account-name microfrontenddb -d '$web' -s dist\release\*
       - name : logout
         run : |
           az logout
