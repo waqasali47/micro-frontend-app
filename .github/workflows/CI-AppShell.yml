@@ -14,8 +14,8 @@ jobs:
       run:
         shell: bash
         working-directory: appshell
-
     steps:
+      - uses: actions/checkout@master
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
