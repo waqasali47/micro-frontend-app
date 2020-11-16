@@ -1,5 +1,5 @@
 
-![Microfrontend CI](https://github.com/waqasali47/micro-frontend-app/workflows/Blob%20storage%20website%20CI/badge.svg)
+![Deploy Feed Service](https://github.com/waqasali47/micro-frontend-app/workflows/Deploy%20Feed%20Service/badge.svg)
 <br/>
 # micro-frontend-app
 <p>A micro front-ends app based on <a href="prial.io">Piral.io</a> framework.
