@@ -1,0 +1,28 @@
+name: Blob storage website CI
+
+on:
+  push:
+    branches: 
+      - master 
+  pull_request:
+    branches: master
+    
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: newapp
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node_version: '12.x'
+      - name : piral install and build
+        run: |
+          npm install
+          npm install -g piral-cli@0.12.1
+          pilet publish --fresh --url https://feed.piral.cloud/api/v1/pilet/demo --api-key 7cd9bb74509c70198c052e1bcd513d553deb26cac9d58acdc6e112180da019a5
+      
