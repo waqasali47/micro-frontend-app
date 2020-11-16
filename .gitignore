@@ -7,3 +7,5 @@ appshell/.vscode/launch.json
 shared-lib/node_modules/*
 shared/node_modules/*
 shared/dist/*
+words/node_modules
+words/dist
