@@ -9,3 +9,5 @@ shared/node_modules/*
 shared/dist/*
 words/node_modules
 words/dist
+newapp/node_modules
+newapp/dist

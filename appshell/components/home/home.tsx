@@ -21,11 +21,6 @@ function test(){
                     <li><a href='https://facebook.github.io/react/'>React</a> for client-side code</li>
                     <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
                 </ul>
-                <button onClick={test} type="button" className="btn btn-primary">
-                    Call Shared Lib <span className="badge badge-light"> {count}</span>
-                </button>
-               
-            
             </div>
         </div>
     );
